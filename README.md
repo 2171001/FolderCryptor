@@ -22,3 +22,39 @@ FolderCryptor is a PowerShell-based tool for encrypting and decrypting folder co
    ```
 
 ## Usage
+1. **Open PowerShell** and navigate to the directory containing the script:
+   ```powershell
+   cd path\to\FolderCryptor
+   ```
+2. Run the script:
+   ```powershell
+   .\FolderCryptor.ps1
+   ```
+3. Enter Password: Provide a password that will be used for both encryption and decryption.
+4. Choose an Action:
+- Type 1 to encrypt the folder contents.
+- Type 2 to decrypt the folder contents.
+
+## Examples
+**First-time Encryption**
+When running the script for the first time and selecting encryption:
+- `file.txt → file.txt.enc`
+**Multi-layer Encryption**
+Running the script and selecting encryption again:
+- `file.txt.enc → file.txt.enc.enc`
+**Decryption Steps**
+Each decryption removes one .enc layer until the file is restored:
+- `file.txt.enc.enc → file.txt.enc`
+- `file.txt.enc → file.txt`
+
+## Notes
+- The encryption key is derived from the provided password using SHA-256 hashing.
+- Make sure to use the same password for encryption and decryption to avoid errors.
+- Avoid re-encrypting decrypted files without a backup, as decryption with an incorrect password will fail.
+
+## Troubleshooting
+- Invalid Key Size: Ensure your PowerShell environment supports AES-256.
+- Padding Error: If you see a "Padding is invalid" error, the password may not match the one used for encryption.
+
+## Contributing
+- Contributions are welcome! Feel free to open an issue or submit a pull request with improvements, bug fixes, or new features.
