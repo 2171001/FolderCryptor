@@ -39,9 +39,11 @@ FolderCryptor is a PowerShell-based tool for encrypting and decrypting folder co
 **First-time Encryption**
 When running the script for the first time and selecting encryption:
 - `file.txt → file.txt.enc`
+
 **Multi-layer Encryption**
 Running the script and selecting encryption again:
 - `file.txt.enc → file.txt.enc.enc`
+
 **Decryption Steps**
 Each decryption removes one .enc layer until the file is restored:
 - `file.txt.enc.enc → file.txt.enc`
